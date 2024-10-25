@@ -15,13 +15,44 @@ public class ClassDiscount {
         double valDiscount = valPrice;
         int currYear = LocalDate.now().getYear();
         
-        switch(custClass){
-                case 1:
-                    if(yearCust < currYear - 5){
-                        valDiscount = valPrice  * 0.8;
-                        System.out.println("Total after 20% discount: " + valDiscount);
-                    }
-                    }
+        if (custClass == 1 && yearCust == currYear) {
+            valDiscount = valPrice * 0.7;
+            System.out.println("Applied 30% Discount");
+            return valDiscount;
+            
+        } else if(custClass == 1 && yearCust < currYear) { //can i add a loop to make the last 5 years more accurate?
+            valDiscount = valPrice * 0.8;
+            System.out.println("Applied 20% Discount");
+            return valDiscount;
+            
+        } else if(custClass == 1 && yearCust < currYear - 5) {
+            valDiscount = valPrice * 0.9;
+            System.out.println("Applied 10% Discount");
+            return valDiscount;
+            
+        } else if (custClass == 2 && custYear == currYear ) {
+            valDiscount = valPrice * 0.85;
+            System.out.println("Applied 15% Discount");
+            return valDiscount;
+            
+        } else if (custClass == 2 && custYear) { //can i add a loop to make the last 5 years more accurate?
+            valDiscount = valPrice ( 0.87);
+            System.out.println("Applied 13% Discount");
+            return valDiscount;
+            
+        } else if (custClass == 2 && custYear < currYear - 5) {
+            valDiscount = valPrice * 0.95;
+            System.out.println("Applied 5% Discount");
+            return valDiscount;
+            
+        } else if (custClass == 3 && custYear == currYear) {
+            valDiscount = valPrice * 0.97;
+            System.out.println("Applied 3% Discount");
+            return valDiscount;
+        } else if (custClass == 3 && custYear < currYear - 5) {
+            System.out.println("No Discount Applied");
+            return valDiscount;
+        }
     }
     /**
      * @param args the command line arguments
