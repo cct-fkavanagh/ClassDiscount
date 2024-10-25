@@ -30,28 +30,28 @@ public class ClassDiscount {
             System.out.println("Applied 10% Discount");
             return valDiscount;
             
-        } else if (custClass == 2 && custYear == currYear ) {
+        } else if (custClass == 2 && yearCust == currYear ) {
             valDiscount = valPrice * 0.85;
             System.out.println("Applied 15% Discount");
             return valDiscount;
             
-        } else if (custClass == 2 && custYear) { //can i add a loop to make the last 5 years more accurate?
-            valDiscount = valPrice ( 0.87);
+        } else if (custClass == 2 && yearCust < currYear) { //can i add a loop to make the last 5 years more accurate?
+            valDiscount = valPrice * 0.87;
             System.out.println("Applied 13% Discount");
             return valDiscount;
             
-        } else if (custClass == 2 && custYear < currYear - 5) {
+        } else if (custClass == 2 && yearCust < currYear - 5) {
             valDiscount = valPrice * 0.95;
             System.out.println("Applied 5% Discount");
             return valDiscount;
             
-        } else if (custClass == 3 && custYear == currYear) {
+        } else if (custClass == 3 && yearCust == currYear) {
             valDiscount = valPrice * 0.97;
             System.out.println("Applied 3% Discount");
             return valDiscount;
-        } else if (custClass == 3 && custYear < currYear - 5) {
+        } else if (custClass == 3 && yearCust < currYear - 5) {
             System.out.println("No Discount Applied");
-            return valDiscount;
+            return valPrice;
         }
     }
     /**
@@ -59,6 +59,9 @@ public class ClassDiscount {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        int currYear = LocalDate.now().getYear();
+        LoopClass loop = new LoopClass();
     
     }
     
