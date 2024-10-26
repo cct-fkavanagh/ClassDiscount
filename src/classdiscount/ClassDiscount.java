@@ -5,6 +5,10 @@
 package classdiscount;
 import java.time.LocalDate; // added to set current date beforehand
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -58,8 +62,17 @@ public class ClassDiscount {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        File file = new File("customers.txt");
+        Scanner scan = null;
+        try {
+            scan = new Scanner(file);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(ClassDiscount.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
-    
-    }
+        while(scan.hasNextLine()) {
+        System.out.println(scan.nextLine());
+        }
+}
     
 }
