@@ -68,6 +68,10 @@ public class ClassDiscount {
             scan = new Scanner(file);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(ClassDiscount.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (scan != null) {
+                scan.close(); // close scanner to avoid leaks
+            }
         }
         
         while(scan.hasNextLine()) {
