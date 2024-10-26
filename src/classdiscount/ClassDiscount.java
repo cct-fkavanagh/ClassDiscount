@@ -73,11 +73,11 @@ public class ClassDiscount {
         Scanner scan = null; //scanner set up outside try/catch so it can be used later
         try {
             scan = new Scanner(file);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(ClassDiscount.class.getName()).log(Level.SEVERE, null, ex);
-                       
-        } while(scan.hasNextLine()) {
-            
+        } catch (FileNotFoundException e) { // renamed to 'e' to avoid conflicts with ln 92
+            Logger.getLogger(ClassDiscount.class.getName()).log(Level.SEVERE, null, e);
+        }
+        try (BufferedWriter out = new BufferedWriter(new FileWriter("customerdiscount.txt"))) {
+            while(scan.hasNextLine()) {           
             String custName = scan.nextLine(); //scans for customer name
             double valPrice = Double.parseDouble(scan.nextLine()); //scans for total customer is spending
             int custClass = Integer.parseInt(scan.nextLine()); // scans for customer class
@@ -85,14 +85,12 @@ public class ClassDiscount {
             
             double valDiscount = calculateDiscountedPrice(custName, custClass, yearCust, valPrice);
             
-            try {
-                BufferedWriter out = new BufferedWriter(new FileWriter("customerdiscount.txt"));
-                out.write("Customer: " + custName + ", Total: " + valDiscount);
-                out.newLine();            
-                //System.out.println("Customer: " + custName + ", Total: " + valDiscount);
-            } catch (IOException ex) {
-                Logger.getLogger(ClassDiscount.class.getName()).log(Level.SEVERE, null, ex);
+            out.write("Customer: " + custName + ", Total: " + valDiscount);
+            out.newLine();
             }
+                //System.out.println("Customer: " + custName + ", Total: " + valDiscount);
+        } catch (IOException ex) { 
+            Logger.getLogger(ClassDiscount.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }    
-}
+    }
+}    

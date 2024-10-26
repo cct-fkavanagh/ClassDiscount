@@ -1,0 +1,8 @@
+Customer: Sam Weiss, Total: 455.01
+Customer: Cristiani Eccher, Total: 1477.31
+Customer: Declan Walsh, Total: 189.7
+Customer: Barry Smart, Total: 2780.0
+Customer: Katie White, Total: 78.0
+Customer: Peter Nolan, Total: 159.79999999999998
+Customer: Daragh Nolan, Total: 31.0
+Customer: Patrick Moss, Total: 70.4
