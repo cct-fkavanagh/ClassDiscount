@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  */
 public class ClassDiscount {
 
-    public static double calculateDiscountedPrice(int custClass, int yearCust, double valPrice) {
+    public static double calculateDiscountedPrice(String custName, int custClass, int yearCust, double valPrice) {
         
         double valDiscount = valPrice;
         int currYear = LocalDate.now().getYear();
@@ -68,15 +68,17 @@ public class ClassDiscount {
             scan = new Scanner(file);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(ClassDiscount.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            if (scan != null) {
-                scan.close(); // close scanner to avoid leaks
+            
+        } while(scan.hasNextLine()) {
+            
+            String custName = scan.nextLine();
+            double valPrice = Double.parseDouble(scan.nextLine());
+            int custClass = Integer.parseInt(scan.nextLine());
+            int yearCust = Integer.parseInt(scan.nextLine());
+            
+            double valDiscount = calculateDiscountedPrice(custName, custClass, yearCust, valPrice);
+            
+            System.out.println("Customer: " + custName + ", Total: " + valDiscount);
             }
         }
-        
-        while(scan.hasNextLine()) {
-        System.out.println(scan.nextLine());
-        }
-}
-    
 }
