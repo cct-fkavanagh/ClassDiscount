@@ -26,7 +26,7 @@ public class ClassDiscount {
             valDiscount = valPrice * 0.7;
             System.out.println("Applied 30% Discount:");
             
-        } else if(custClass == 1 && yearCust < currYear) { //can i add a loop to make the last 5 years more accurate?
+        } else if(custClass == 1 && yearCust < currYear) {
             valDiscount = valPrice * 0.8;
             System.out.println("Applied 20% Discount:");
             
@@ -38,7 +38,7 @@ public class ClassDiscount {
             valDiscount = valPrice * 0.85;
             System.out.println("Applied 15% Discount:");
             
-        } else if (custClass == 2 && yearCust < currYear) { //can i add a loop to make the last 5 years more accurate?
+        } else if (custClass == 2 && yearCust < currYear) {
             valDiscount = valPrice * 0.87;
             System.out.println("Applied 13% Discount:");
             
@@ -83,7 +83,9 @@ public class ClassDiscount {
             
             double valDiscount = calculateDiscountedPrice(custName, custClass, yearCust, valPrice);
             
-            out.write("Customer: " + custName + ", Total: " + valDiscount);
+            out.write(custName); //  write the customer's name first
+            out.newLine(); // writes to the next line
+            out.write(String.valueOf(valDiscount)); // writes the total after the discount on a new line
             out.newLine();
             }
                 //System.out.println("Customer: " + custName + ", Total: " + valDiscount);
