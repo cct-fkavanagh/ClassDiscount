@@ -1,5 +1,3 @@
-// github link: https://github.com/cct-fkavanagh/ClassDiscount
-
 package classdiscount;
 import java.time.LocalDate; // added to set current date beforehand
 import java.io.BufferedWriter;
@@ -62,9 +60,8 @@ public class ClassDiscount {
         return valDiscount;
     }
     
-    /**
-     * @param args the command line arguments
-     */
+// github link: https://github.com/cct-fkavanagh/ClassDiscount
+
     public static void main(String[] args) {
 
         File file = new File("customers.txt"); //designating what file I want read
@@ -88,7 +85,6 @@ public class ClassDiscount {
             out.write(String.valueOf(valDiscount)); // writes the total after the discount on a new line
             out.newLine();
             }
-                //System.out.println("Customer: " + custName + ", Total: " + valDiscount);
         } catch (IOException ex) { 
             Logger.getLogger(ClassDiscount.class.getName()).log(Level.SEVERE, null, ex);
         }
